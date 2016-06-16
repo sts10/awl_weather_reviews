@@ -4,7 +4,7 @@ require 'nokogiri'
 require 'open_uri_redirections'
 
 class Post
-  attr_reader :url, :image_url, :text, :stars
+  attr_reader :url, :headline, :image_url, :text, :stars
   def initialize(row)
     @url = row[0]
     @image_url = row[1]
@@ -31,15 +31,20 @@ class Post
   end
 end
 
+all_scraped_posts = []
+posts_scraped = 0
 CSV.foreach("csv/weather_reviews.csv") do |row|
   this_post = Post.new(row)
+  all_scraped_posts << this_post
+
+  posts_scraped = posts_scraped + 1
+  puts "have scraped #{posts_scraped} posts"
 end
 
-# CSV.open("csv/weather_posts_scraped.csv", "w") do |csv|
-#   weather_rows.each do |row|
-#     csv << [row[0], row[1]]
-#     puts row
-#   end
-# end
+CSV.open("csv/weather_posts_scraped.csv", "w") do |csv|
+  all_scraped_posts.each do |post|
+    csv << [post.url, post.headline, post.image_url, post.text, post.stars]
+  end
+end
 
 
