@@ -16,7 +16,6 @@ class Post
       sleep 120
       @doc = Nokogiri::HTML(open(@url, :allow_redirections => :safe))
     end
-    # @posts = []
     self.scrape
   end
 
