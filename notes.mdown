@@ -1,0 +1,5 @@
+
+1. Read in (either locally or from Githuc as I think I did with the other projects) this csv file: https://raw.githubusercontent.com/sts10/awl_alt_scraper/master/csv/archive1.csv
+2. filter for URLs containing "weather-review"
+3. Optional: Create new CSV by scraping just these weather review posts for (a) lead image, (b) headline (and possible location + date as separate variables), (c) number of stars (if any), and (d) the text of the review itself, just in case we want to use it later. 
+4. Create website to display the images filled in 100% width and, if I can, infinite scroll, only showing date and rating and maybe location on hover. Click to go to post?
