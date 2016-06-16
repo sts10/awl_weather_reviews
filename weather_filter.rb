@@ -11,7 +11,7 @@ end
   
 CSV.open("csv/weather_reviews.csv", "w") do |csv|
   weather_rows.each do |row|
-    csv << row
+    csv << [row[0], row[1]]
     puts row
   end
 end
